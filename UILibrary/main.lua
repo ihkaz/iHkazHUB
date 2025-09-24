@@ -3617,21 +3617,7 @@ local af={
 Button=nil
 }
 
-local ag
-
-
-
-
-
-
-
-
-
-
-
-
-
-local ah=ac("TextLabel",{
+local ag=ac("TextLabel",{
 Text=ae.Title,
 TextSize=17,
 FontFace=Font.new(ab.Font,Enum.FontWeight.Medium),
@@ -3639,30 +3625,32 @@ BackgroundTransparency=1,
 AutomaticSize="XY",
 })
 
-local ai=ac("Frame",{
-Size=UDim2.new(0,36,0,36),
+
+local ah=ac("Frame",{
+Size=UDim2.new(0,44,0,44),
 BackgroundTransparency=1,
-Name="Drag",
+Name="LogoArea",
 },{
 ac("ImageLabel",{
-Image=ab.Icon"move"[1],
-ImageRectOffset=ab.Icon"move"[2].ImageRectPosition,
-ImageRectSize=ab.Icon"move"[2].ImageRectSize,
-Size=UDim2.new(0,18,0,18),
+Image="rbxassetid://73617656826423",
+Size=UDim2.new(1,0,1,0),
 BackgroundTransparency=1,
-Position=UDim2.new(0.5,0,0.5,0),
-AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0,0,0,0),
+ScaleType=Enum.ScaleType.Fit,
 })
 })
-local aj=ac("Frame",{
+
+
+local ai=ac("Frame",{
 Size=UDim2.new(0,1,1,0),
-Position=UDim2.new(0,36,0.5,0),
+Position=UDim2.new(1,0,0.5,0),
 AnchorPoint=Vector2.new(0,0.5),
 BackgroundColor3=Color3.new(1,1,1),
 BackgroundTransparency=.9,
+Parent=ah,
 })
 
-local ak=ac("Frame",{
+local aj=ac("Frame",{
 Size=UDim2.new(0,0,0,0),
 Position=UDim2.new(0.5,0,0,28),
 AnchorPoint=Vector2.new(0.5,0.5),
@@ -3671,18 +3659,16 @@ BackgroundTransparency=1,
 Active=true,
 Visible=false,
 })
-local al=ac("TextButton",{
+
+local ak=ac("TextButton",{
 Size=UDim2.new(0,0,0,44),
 AutomaticSize="X",
-Parent=ak,
+Parent=aj,
 Active=false,
 BackgroundTransparency=.25,
 ZIndex=99,
 BackgroundColor3=Color3.new(0,0,0),
 },{
-
-
-
 ac("UICorner",{
 CornerRadius=UDim.new(1,0)
 }),
@@ -3696,33 +3682,33 @@ ac("UIGradient",{
 Color=ColorSequence.new(Color3.fromHex"40c9ff",Color3.fromHex"e81cff")
 })
 }),
-ai,
-aj,
+ah,
 
 ac("UIListLayout",{
-Padding=UDim.new(0,4),
+Padding=UDim.new(0,0),
 FillDirection="Horizontal",
 VerticalAlignment="Center",
 }),
+
 
 ac("TextButton",{
 AutomaticSize="XY",
 Active=true,
 BackgroundTransparency=1,
 Size=UDim2.new(0,0,0,36),
-
 BackgroundColor3=Color3.new(1,1,1),
+Name="DraggableTextButton",
 },{
 ac("UICorner",{
 CornerRadius=UDim.new(1,-4)
 }),
-ag,
+
 ac("UIListLayout",{
 Padding=UDim.new(0,ae.UIPadding),
 FillDirection="Horizontal",
 VerticalAlignment="Center",
 }),
-ah,
+ag,
 ac("UIPadding",{
 PaddingLeft=UDim.new(0,12),
 PaddingRight=UDim.new(0,12),
@@ -3734,129 +3720,103 @@ PaddingRight=UDim.new(0,4),
 })
 })
 
-af.Button=al
+af.Button=ak
 
 
-
-function af.SetIcon(am,an)
-if ag then
-ag:Destroy()
-end
-if an then
-ag=ab.Image(
-an,
-ae.Title,
-0,
-ae.Folder,
-"OpenButton",
-true,
-ae.IconThemed
-)
-ag.Size=UDim2.new(0,22,0,22)
-ag.LayoutOrder=-1
-ag.Parent=af.Button.TextButton
+function af.SetLogo(al,am)
+local an=ah:FindFirstChild"ImageLabel"
+if an and am then
+an.Image="rbxassetid://"..tostring(am)
 end
 end
 
-if ae.Icon then
-af:SetIcon(ae.Icon)
-end
-
-
-
-ab.AddSignal(al:GetPropertyChangedSignal"AbsoluteSize",function()
-ak.Size=UDim2.new(
-0,al.AbsoluteSize.X,
-0,al.AbsoluteSize.Y
+ab.AddSignal(ak:GetPropertyChangedSignal"AbsoluteSize",function()
+aj.Size=UDim2.new(
+0,ak.AbsoluteSize.X,
+0,ak.AbsoluteSize.Y
 )
 end)
 
-ab.AddSignal(al.TextButton.MouseEnter,function()
-ad(al.TextButton,.1,{BackgroundTransparency=.93}):Play()
+ab.AddSignal(ak.DraggableTextButton.MouseEnter,function()
+ad(ak.DraggableTextButton,.1,{BackgroundTransparency=.93}):Play()
 end)
-ab.AddSignal(al.TextButton.MouseLeave,function()
-ad(al.TextButton,.1,{BackgroundTransparency=1}):Play()
+ab.AddSignal(ak.DraggableTextButton.MouseLeave,function()
+ad(ak.DraggableTextButton,.1,{BackgroundTransparency=1}):Play()
 end)
 
-local am=ab.Drag(ak)
 
+local al=ab.Drag(ak.DraggableTextButton)
 
-function af.Visible(an,ao)
-ak.Visible=ao
+function af.Visible(am,an)
+aj.Visible=an
 end
 
-function af.Edit(an,ao)
-local ap={
-Title=ao.Title,
-Icon=ao.Icon,
-Enabled=ao.Enabled,
-Position=ao.Position,
-Draggable=ao.Draggable,
-OnlyMobile=ao.OnlyMobile,
-CornerRadius=ao.CornerRadius or UDim.new(1,0),
-StrokeThickness=ao.StrokeThickness or 2,
-Color=ao.Color
+function af.Edit(am,an)
+local ao={
+Title=an.Title,
+Icon=an.Icon,
+Enabled=an.Enabled,
+Position=an.Position,
+Draggable=an.Draggable,
+OnlyMobile=an.OnlyMobile,
+CornerRadius=an.CornerRadius or UDim.new(1,0),
+StrokeThickness=an.StrokeThickness or 2,
+Color=an.Color
 or ColorSequence.new(Color3.fromHex"40c9ff",Color3.fromHex"e81cff"),
 }
 
-
-
-if ap.Enabled==false then
+if ao.Enabled==false then
 ae.IsOpenButtonEnabled=false
 end
 
-if ap.OnlyMobile~=false then
-ap.OnlyMobile=true
+if ao.OnlyMobile~=false then
+ao.OnlyMobile=true
 else
 ae.IsPC=false
 end
 
-if ap.Draggable==false and ai and aj then
-ai.Visible=ap.Draggable
-aj.Visible=ap.Draggable
+if ao.Draggable==false and ah and ai then
+ah.Visible=ao.Draggable
+ai.Visible=ao.Draggable
 
-if am then
-am:Set(ap.Draggable)
+if al then
+al:Set(ao.Draggable)
 end
 end
 
-if ap.Position and ak then
-ak.Position=ap.Position
+if ao.Position and aj then
+aj.Position=ao.Position
 end
 
-
-
-
-
-if ah then
-if ap.Title then
-ah.Text=ap.Title
-ab:ChangeTranslationKey(ah,ap.Title)
-elseif ap.Title==nil then
+if ag then
+if ao.Title then
+ag.Text=ao.Title
+ab:ChangeTranslationKey(ag,ao.Title)
+elseif ao.Title==nil then
 
 end
 end
 
-if ap.Icon then
-af:SetIcon(ap.Icon)
+
+if ao.Icon then
+af:SetLogo(ao.Icon)
 end
 
-al.UIStroke.UIGradient.Color=ap.Color
+ak.UIStroke.UIGradient.Color=ao.Color
 if Glow then
-Glow.UIGradient.Color=ap.Color
+Glow.UIGradient.Color=ao.Color
 end
 
-al.UICorner.CornerRadius=ap.CornerRadius
-al.TextButton.UICorner.CornerRadius=UDim.new(ap.CornerRadius.Scale,ap.CornerRadius.Offset-4)
-al.UIStroke.Thickness=ap.StrokeThickness
+ak.UICorner.CornerRadius=ao.CornerRadius
+ak.DraggableTextButton.UICorner.CornerRadius=UDim.new(ao.CornerRadius.Scale,ao.CornerRadius.Offset-4)
+ak.UIStroke.Thickness=ao.StrokeThickness
 end
 
 return af
 end
 
-
-
 return aa end function a.x()
+
 local aa={}
 
 local ab=a.load'a'
