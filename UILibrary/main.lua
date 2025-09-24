@@ -3644,6 +3644,7 @@ Size=UDim2.new(0,36,0,36),
 BackgroundTransparency=1,
 Name="Drag",
 Image="rbxassetid://73617656826423",
+ScaleType=Enum.ScaleType.Stretch,
 })
 local aj=ac("Frame",{
 Size=UDim2.new(0,1,1,0),
@@ -3848,6 +3849,7 @@ end
 
 
 return aa end function a.x()
+
 local aa={}
 
 local ab=a.load'a'
