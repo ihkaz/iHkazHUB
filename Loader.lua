@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ihkaz/iHkazHUB/refs/heads/main/Fishit.lua"))()
