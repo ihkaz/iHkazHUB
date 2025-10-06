@@ -3785,9 +3785,9 @@ BackgroundTransparency=1,
 Name="LogoArea",
 },{
 ac("ImageLabel",{
-Image="rbxassetid://119742316400584",
+Image="rbxassetid://100253708538375",
 Size=UDim2.new(1,0,1,0),
-BackgroundTransparency=1,
+BackgroundTransparency=0,
 ScaleType=Enum.ScaleType.Crop,
 Position=UDim2.new(0.5,0,0.5,0),
 AnchorPoint=Vector2.new(0.5,0.5),
@@ -3798,7 +3798,7 @@ AnchorPoint=Vector2.new(0.5,0.5),
 local ai=ac("Frame",{
 Size=UDim2.new(0,1,1,0),
 BackgroundColor3=Color3.new(1,1,1),
-BackgroundTransparency=.9,
+BackgroundTransparency=0,
 })
 
 
@@ -3808,11 +3808,11 @@ BackgroundTransparency=1,
 Name="Drag",
 },{
 ac("ImageLabel",{
-Image=ab.Icon"move"[1],
-ImageRectOffset=ab.Icon"move"[2].ImageRectPosition,
-ImageRectSize=ab.Icon"move"[2].ImageRectSize,
+Image=ab.Icon"vector-square"[1],
+ImageRectOffset=ab.Icon"vector-square"[2].ImageRectPosition,
+ImageRectSize=ab.Icon"vector-square"[2].ImageRectSize,
 Size=UDim2.new(0,18,0,18),
-BackgroundTransparency=1,
+BackgroundTransparency=0,
 Position=UDim2.new(0.5,0,0.5,0),
 AnchorPoint=Vector2.new(0.5,0.5),
 ThemeTag={
@@ -3826,7 +3826,7 @@ ImageTransparency=.3,
 local ak=ac("Frame",{
 Size=UDim2.new(0,1,1,0),
 BackgroundColor3=Color3.new(1,1,1),
-BackgroundTransparency=.9,
+BackgroundTransparency=0,
 })
 
 local al=ac("Frame",{
@@ -3834,7 +3834,7 @@ Size=UDim2.new(0,0,0,0),
 Position=UDim2.new(0.5,0,0,28),
 AnchorPoint=Vector2.new(0.5,0.5),
 Parent=ae.Parent,
-BackgroundTransparency=1,
+BackgroundTransparency=0,
 Active=true,
 Visible=false,
 })
@@ -9347,7 +9347,7 @@ Size=UDim2.new(0,70,0,70),
 Image=ag.Icon"expand"[1],
 ImageRectOffset=ag.Icon"expand"[2].ImageRectPosition,
 ImageRectSize=ag.Icon"expand"[2].ImageRectSize,
-BackgroundTransparency=1,
+BackgroundTransparency=0,
 Position=UDim2.new(0.5,0,0.5,0),
 AnchorPoint=Vector2.new(0.5,0.5),
 ImageTransparency=1,
