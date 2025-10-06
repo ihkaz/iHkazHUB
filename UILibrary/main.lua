@@ -3788,7 +3788,7 @@ ac("ImageLabel",{
 Image="rbxassetid://119742316400584",
 Size=UDim2.new(1,0,1,0),
 BackgroundTransparency=1,
-ScaleType=Enum.ScaleType.Fit,
+ScaleType=Enum.ScaleType.Crop,
 Position=UDim2.new(0.5,0,0.5,0),
 AnchorPoint=Vector2.new(0.5,0.5),
 })
@@ -3800,6 +3800,7 @@ Size=UDim2.new(0,1,1,0),
 BackgroundColor3=Color3.new(1,1,1),
 BackgroundTransparency=.9,
 })
+
 
 local aj=ac("Frame",{
 Size=UDim2.new(0,36,0,36),
@@ -3861,14 +3862,9 @@ Color=ColorSequence.new(Color3.fromHex"40c9ff",Color3.fromHex"e81cff")
 })
 }),
 
+
 ah,
 ai,
-
-ac("UIListLayout",{
-Padding=UDim.new(0,4),
-FillDirection="Horizontal",
-VerticalAlignment="Center",
-}),
 
 ac("TextButton",{
 AutomaticSize="XY",
@@ -3894,6 +3890,12 @@ PaddingRight=UDim.new(0,11),
 
 ak,
 aj,
+
+ac("UIListLayout",{
+Padding=UDim.new(0,4),
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+}),
 
 ac("UIPadding",{
 PaddingLeft=UDim.new(0,4),
@@ -3928,7 +3930,6 @@ end
 function af.Edit(ao,ap)
 local aq={
 Title=ap.Title,
-Icon=ap.Icon,
 Enabled=ap.Enabled,
 Position=ap.Position,
 OnlyIcon=ap.OnlyIcon or false,
@@ -3974,8 +3975,6 @@ if ag then
 if aq.Title then
 ag.Text=aq.Title
 ab:ChangeTranslationKey(ag,aq.Title)
-elseif aq.Title==nil then
-
 end
 end
 
