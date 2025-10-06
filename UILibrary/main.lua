@@ -3785,7 +3785,7 @@ BackgroundTransparency=1,
 Name="LogoArea",
 },{
 ac("ImageLabel",{
-Image="rbxassetid://100253708538",
+Image="rbxassetid://100253708538375",
 Size=UDim2.new(1,0,1,0),
 BackgroundTransparency=1,
 ScaleType=Enum.ScaleType.Crop,
