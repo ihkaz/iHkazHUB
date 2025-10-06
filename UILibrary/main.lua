@@ -4,12 +4,12 @@
     | |/ |/ / / _ \/ _  / /_/ // /  
     |__/|__/_/_//_/\_,_/\____/___/
     
-    v1.6.53  |  2025-10-05  |  Roblox UI Library for scripts
+    v1.6.53  |  2025-10-06  |  Roblox UI Library for scripts
     
     This script is NOT intended to be modified.
     To view the source code, see the `src/` folder on the official GitHub repository.
     
-    Author: Footagesus (Footages, .ftgs, oftgs)
+    Author: Footagesus (Footages, .ftgs, oftgs) (Edited by iHkazzz)
     Github: https://github.com/Footagesus/WindUI
     Discord: https://discord.gg/ftgs-development-hub-1300692552005189632
     License: MIT
@@ -3770,21 +3770,7 @@ local af={
 Button=nil
 }
 
-local ag
-
-
-
-
-
-
-
-
-
-
-
-
-
-local ah=ac("TextLabel",{
+local ag=ac("TextLabel",{
 Text=ae.Title,
 TextSize=17,
 FontFace=Font.new(ab.Font,Enum.FontWeight.Medium),
@@ -3792,7 +3778,30 @@ BackgroundTransparency=1,
 AutomaticSize="XY",
 })
 
+
+local ah=ac("Frame",{
+Size=UDim2.new(0,36,0,36),
+BackgroundTransparency=1,
+Name="LogoArea",
+},{
+ac("ImageLabel",{
+Image="rbxassetid://119742316400584",
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+ScaleType=Enum.ScaleType.Fit,
+Position=UDim2.new(0.5,0,0.5,0),
+AnchorPoint=Vector2.new(0.5,0.5),
+})
+})
+
+
 local ai=ac("Frame",{
+Size=UDim2.new(0,1,1,0),
+BackgroundColor3=Color3.new(1,1,1),
+BackgroundTransparency=.9,
+})
+
+local aj=ac("Frame",{
 Size=UDim2.new(0,36,0,36),
 BackgroundTransparency=1,
 Name="Drag",
@@ -3811,15 +3820,15 @@ ImageColor3="Icon",
 ImageTransparency=.3,
 })
 })
-local aj=ac("Frame",{
+
+
+local ak=ac("Frame",{
 Size=UDim2.new(0,1,1,0),
-Position=UDim2.new(0,36,0.5,0),
-AnchorPoint=Vector2.new(0,0.5),
 BackgroundColor3=Color3.new(1,1,1),
 BackgroundTransparency=.9,
 })
 
-local ak=ac("Frame",{
+local al=ac("Frame",{
 Size=UDim2.new(0,0,0,0),
 Position=UDim2.new(0.5,0,0,28),
 AnchorPoint=Vector2.new(0.5,0.5),
@@ -3828,18 +3837,16 @@ BackgroundTransparency=1,
 Active=true,
 Visible=false,
 })
-local al=ac("TextButton",{
+
+local am=ac("TextButton",{
 Size=UDim2.new(0,0,0,44),
 AutomaticSize="X",
-Parent=ak,
+Parent=al,
 Active=false,
 BackgroundTransparency=.25,
 ZIndex=99,
 BackgroundColor3=Color3.new(0,0,0),
 },{
-
-
-
 ac("UICorner",{
 CornerRadius=UDim.new(1,0)
 }),
@@ -3853,8 +3860,9 @@ ac("UIGradient",{
 Color=ColorSequence.new(Color3.fromHex"40c9ff",Color3.fromHex"e81cff")
 })
 }),
+
+ah,
 ai,
-aj,
 
 ac("UIListLayout",{
 Padding=UDim.new(0,4),
@@ -3867,153 +3875,118 @@ AutomaticSize="XY",
 Active=true,
 BackgroundTransparency=1,
 Size=UDim2.new(0,0,0,36),
-
 BackgroundColor3=Color3.new(1,1,1),
 },{
 ac("UICorner",{
 CornerRadius=UDim.new(1,-4)
 }),
-ag,
 ac("UIListLayout",{
 Padding=UDim.new(0,ae.UIPadding),
 FillDirection="Horizontal",
 VerticalAlignment="Center",
 }),
-ah,
+ag,
 ac("UIPadding",{
 PaddingLeft=UDim.new(0,11),
 PaddingRight=UDim.new(0,11),
 }),
 }),
+
+ak,
+aj,
+
 ac("UIPadding",{
 PaddingLeft=UDim.new(0,4),
 PaddingRight=UDim.new(0,4),
 })
 })
 
-af.Button=al
+af.Button=am
 
 
-
-function af.SetIcon(am,an)
-if ag then
-ag:Destroy()
-end
-if an then
-ag=ab.Image(
-an,
-ae.Title,
-0,
-ae.Folder,
-"OpenButton",
-true,
-ae.IconThemed
-)
-ag.Size=UDim2.new(0,22,0,22)
-ag.LayoutOrder=-1
-ag.Parent=af.Button.TextButton
-end
-end
-
-if ae.Icon then
-af:SetIcon(ae.Icon)
-end
-
-
-
-ab.AddSignal(al:GetPropertyChangedSignal"AbsoluteSize",function()
-ak.Size=UDim2.new(
-0,al.AbsoluteSize.X,
-0,al.AbsoluteSize.Y
+ab.AddSignal(am:GetPropertyChangedSignal"AbsoluteSize",function()
+al.Size=UDim2.new(
+0,am.AbsoluteSize.X,
+0,am.AbsoluteSize.Y
 )
 end)
 
-ab.AddSignal(al.TextButton.MouseEnter,function()
-ad(al.TextButton,.1,{BackgroundTransparency=.93}):Play()
+ab.AddSignal(am.TextButton.MouseEnter,function()
+ad(am.TextButton,.1,{BackgroundTransparency=.93}):Play()
 end)
-ab.AddSignal(al.TextButton.MouseLeave,function()
-ad(al.TextButton,.1,{BackgroundTransparency=1}):Play()
+ab.AddSignal(am.TextButton.MouseLeave,function()
+ad(am.TextButton,.1,{BackgroundTransparency=1}):Play()
 end)
 
-local am=ab.Drag(ak,{al,ai})
+local an=ab.Drag(al)
 
 
-function af.Visible(an,ao)
-ak.Visible=ao
+function af.Visible(ao,ap)
+al.Visible=ap
 end
 
-function af.Edit(an,ao)
-local ap={
-Title=ao.Title,
-Icon=ao.Icon,
-Enabled=ao.Enabled,
-Position=ao.Position,
-OnlyIcon=ao.OnlyIcon or false,
-Draggable=ao.Draggable,
-OnlyMobile=ao.OnlyMobile,
-CornerRadius=ao.CornerRadius or UDim.new(1,0),
-StrokeThickness=ao.StrokeThickness or 2,
-Color=ao.Color
+function af.Edit(ao,ap)
+local aq={
+Title=ap.Title,
+Icon=ap.Icon,
+Enabled=ap.Enabled,
+Position=ap.Position,
+OnlyIcon=ap.OnlyIcon or false,
+Draggable=ap.Draggable,
+OnlyMobile=ap.OnlyMobile,
+CornerRadius=ap.CornerRadius or UDim.new(1,0),
+StrokeThickness=ap.StrokeThickness or 2,
+Color=ap.Color
 or ColorSequence.new(Color3.fromHex"40c9ff",Color3.fromHex"e81cff"),
 }
 
-
-
-if ap.Enabled==false then
+if aq.Enabled==false then
 ae.IsOpenButtonEnabled=false
 end
 
-if ap.OnlyMobile~=false then
-ap.OnlyMobile=true
+if aq.OnlyMobile~=false then
+aq.OnlyMobile=true
 else
 ae.IsPC=false
 end
 
 
-if ap.Draggable==false and ai and aj then
-ai.Visible=ap.Draggable
-aj.Visible=ap.Draggable
+if aq.Draggable==false and aj and ak then
+aj.Visible=aq.Draggable
+ak.Visible=aq.Draggable
 
-if am then
-am:Set(ap.Draggable)
+if an then
+an:Set(aq.Draggable)
 end
 end
 
-if ap.Position and ak then
-ak.Position=ap.Position
+if aq.Position and al then
+al.Position=aq.Position
 end
 
-if ap.OnlyIcon and ah then
-ah.Visible=false
-al.TextButton.UIPadding.PaddingLeft=UDim.new(0,7)
-al.TextButton.UIPadding.PaddingRight=UDim.new(0,7)
+if aq.OnlyIcon and ag then
+ag.Visible=false
+am.TextButton.UIPadding.PaddingLeft=UDim.new(0,7)
+am.TextButton.UIPadding.PaddingRight=UDim.new(0,7)
 end
 
-
-
-
-
-if ah then
-if ap.Title then
-ah.Text=ap.Title
-ab:ChangeTranslationKey(ah,ap.Title)
-elseif ap.Title==nil then
+if ag then
+if aq.Title then
+ag.Text=aq.Title
+ab:ChangeTranslationKey(ag,aq.Title)
+elseif aq.Title==nil then
 
 end
 end
 
-if ap.Icon then
-af:SetIcon(ap.Icon)
-end
-
-al.UIStroke.UIGradient.Color=ap.Color
+am.UIStroke.UIGradient.Color=aq.Color
 if Glow then
-Glow.UIGradient.Color=ap.Color
+Glow.UIGradient.Color=aq.Color
 end
 
-al.UICorner.CornerRadius=ap.CornerRadius
-al.TextButton.UICorner.CornerRadius=UDim.new(ap.CornerRadius.Scale,ap.CornerRadius.Offset-4)
-al.UIStroke.Thickness=ap.StrokeThickness
+am.UICorner.CornerRadius=aq.CornerRadius
+am.TextButton.UICorner.CornerRadius=UDim.new(aq.CornerRadius.Scale,aq.CornerRadius.Offset-4)
+am.UIStroke.Thickness=aq.StrokeThickness
 end
 
 return af
