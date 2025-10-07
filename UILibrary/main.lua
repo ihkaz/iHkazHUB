@@ -4,7 +4,7 @@
     | |/ |/ / / _ \/ _  / /_/ // /  
     |__/|__/_/_//_/\_,_/\____/___/
     
-    v1.6.53  |  2025-10-06  |  Roblox UI Library for scripts
+    v1.6.53  |  2025-10-07  |  Roblox UI Library for scripts
     
     This script is NOT intended to be modified.
     To view the source code, see the `src/` folder on the official GitHub repository.
@@ -3785,7 +3785,7 @@ BackgroundTransparency=1,
 Name="LogoArea",
 },{
 ac("ImageLabel",{
-Image="rbxassetid://100253708538375",
+Image="rbxassetid://100253708538",
 Size=UDim2.new(1,0,1,0),
 BackgroundTransparency=1,
 ScaleType=Enum.ScaleType.Crop,
@@ -9301,7 +9301,7 @@ aq.Resizable=true
 end
 
 if aq.Folder then
-makefolder("iHkazHub/"..aq.Folder)
+makefolder("WindUI/"..aq.Folder)
 end
 
 local as=ai("UICorner",{
@@ -11174,8 +11174,8 @@ ac:SetLanguage(ak.Language)
 function ac.CreateWindow(as,at)
 local au=a.load'W'
 
-if not isfolder"iHkazHub"then
-makefolder"iHkazHub"
+if not isfolder"WindUI"then
+makefolder"WindUI"
 end
 if at.Folder then
 makefolder(at.Folder)
