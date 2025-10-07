@@ -3785,7 +3785,7 @@ BackgroundTransparency=1,
 Name="LogoArea",
 },{
 ac("ImageLabel",{
-Image="rbxassetid://100253708538",
+Image="rbxassetid://100253708538375",
 Size=UDim2.new(1,0,1,0),
 BackgroundTransparency=1,
 ScaleType=Enum.ScaleType.Crop,
@@ -9301,7 +9301,7 @@ aq.Resizable=true
 end
 
 if aq.Folder then
-makefolder("WindUI/"..aq.Folder)
+makefolder("iHkazHub/"..aq.Folder)
 end
 
 local as=ai("UICorner",{
@@ -11174,8 +11174,8 @@ ac:SetLanguage(ak.Language)
 function ac.CreateWindow(as,at)
 local au=a.load'W'
 
-if not isfolder"WindUI"then
-makefolder"WindUI"
+if not isfolder"iHkazHub"then
+makefolder"iHkazHub"
 end
 if at.Folder then
 makefolder(at.Folder)
